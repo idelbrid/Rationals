@@ -3,6 +3,7 @@
 #define RATIONAL
 #include <iostream>
 #include <cstdint>
+
 int64_t gcd(int64_t, int64_t);
 int64_t lcm(int64_t, int64_t);
 class Rational{

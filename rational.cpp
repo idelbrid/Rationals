@@ -3,6 +3,7 @@
 
 int64_t gcd(int64_t a, int64_t b)
 {
+	/* Implements Eucliean Algorithm */
 	if(a < 0){ a = -a; }
 	if(b < 0){ b = -b; }
 	
@@ -18,7 +19,7 @@ int64_t gcd(int64_t a, int64_t b)
 	int64_t r = INT64_MAX;
 	while (r != 0)
 	{
-		int64_t d = a / b; // greatest multiple of b < a
+		// int64_t d = a / b; // greatest multiple of b < a
 		r = a % b; // remainder of integer division
 		a = b;
 		b = r;
@@ -43,10 +44,12 @@ int64_t Rational::getNum()
 {
 	return m_num;
 }
+
 int64_t Rational::getDenom()
 {
 	return m_denom;
 }
+
 inline bool Rational::isSimplified()
 {
 	return simplified;
@@ -62,24 +65,26 @@ void Rational::simplify()
 Rational::operator double(){
 	return (double)m_num / m_denom;
 }
+
 Rational operator+(const Rational &a, const Rational &b){
 	const int64_t l = lcm(a.m_denom, b.m_denom);
 	
 	const int64_t this_new_num = (l / a.m_denom) * a.m_num;
+	
 	const int64_t other_new_num = (l / b.m_denom) * b.m_num;
 	
 	return Rational(this_new_num + other_new_num, l);
 }
 
-Rational simplify(const Rational &frac)
-{
-	
-}
+//Rational simplify(const Rational &frac)
+//{
+//	
+//}
 
 
-int main(int argc, char* argv[])
-{
-	run_tests();
-	return 0;
-}
+//int main(int argc, char* argv[])
+//{
+//	run_tests();
+//	return 0;
+//}
 

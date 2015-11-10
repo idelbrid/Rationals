@@ -19,6 +19,13 @@ int run_tests(){
 	Rational frac3(8,6); printFrac(frac3);
 	printFrac(frac1 + frac2);
 	printFrac(frac1 + frac3);
+
 	std::cout << "All tests pass" << std::endl;
-	return 0;
+	return 1;
+}
+
+int main(){
+
+	run_tests();
+	return 1;
 }
